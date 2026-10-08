@@ -1,5 +1,5 @@
 import {defaultPhotoCounts,photoLayout,paperDimensions} from './layout.js';
-import {setupPhotoEditor} from './photo-editor.js';
+import {setupPhotoEditor} from './photo-editor.js?v=20261008-lines-blanks';
 import {QR_URL,QR_DATA} from './qr.js';
 import * as pdfjs from './vendor/pdf.min.mjs';
 pdfjs.GlobalWorkerOptions.workerSrc='./vendor/pdf.worker.min.mjs';
@@ -88,5 +88,5 @@ $('#pdf-export').onclick=()=>busy('PDFを作成しています…',async()=>{con
 $('#print').onclick=()=>{const win=window.open('','_blank');if(!win){toast('印刷画面を開くため、ポップアップを許可してください。');return}win.document.write('<html lang="ja"><head><title>指示書 印刷</title></head><body>印刷用の指示書を準備しています…</body></html>');busy('印刷を準備しています…',async()=>{const pages=await allPages();win.document.head.innerHTML=`<meta charset="utf-8"><title>${esc(meta().title)}</title><style>@page{margin:0;size:${state.paperSize} ${state.orientation}}@page landscape{size:${state.paperSize} landscape;margin:0}@page portrait{size:${state.paperSize} portrait;margin:0}*{box-sizing:border-box}body{margin:0}.sheet{break-after:page;display:flex;align-items:center;justify-content:center;overflow:hidden}.sheet:last-child{break-after:auto}.landscape{page:landscape;width:${paperDimensions(state.paperSize,true).widthMM}mm;height:${paperDimensions(state.paperSize,true).heightMM}mm}.portrait{page:portrait;width:${paperDimensions(state.paperSize,false).widthMM}mm;height:${paperDimensions(state.paperSize,false).heightMM}mm}.sheet img{max-width:100%;max-height:100%;object-fit:contain}@media screen{body{background:#eee}.sheet{background:white;margin:20px auto;box-shadow:0 2px 12px #0002}}</style>`;win.document.body.replaceChildren();for(const p of pages){const el=win.document.createElement('div');el.className='sheet '+(p.landscape?'landscape':'portrait');const im=win.document.createElement('img');im.src=p.canvas.toDataURL('image/jpeg',.94);el.append(im);win.document.body.append(el);await im.decode()}win.focus();win.print()})};
 window.addEventListener('beforeunload',e=>{if(state.photos.length||state.drawings.length){e.preventDefault();e.returnValue=''}});
 render();
-import {createExcel} from './excel.js';
+import {createExcel} from './excel.js?v=20261008-lines-blanks';
 $('#excel-export').onclick=()=>busy('Excelを作成しています…',async()=>{await ensureQR();download(await createExcel({photos:state.photos,drawings:state.drawings,orientation:state.orientation,paperSize:state.paperSize,photosPerPage:state.photosPerPage,meta:meta(),annotatedDrawing,drawingDocument}),filename('xlsx'));toast('Excelを保存しました。コメントはExcelでも編集できます。')});

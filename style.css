@@ -19,8 +19,8 @@
 
 .color-palette{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.color-palette .color-swatch{width:24px;height:24px;min-width:24px;padding:0;border:1px solid #94a5aa;border-radius:4px;box-shadow:inset 0 0 0 1px #fff5}.color-palette .color-swatch:hover{outline:2px solid #087ce8;outline-offset:1px}.color-palette .color-swatch:focus-visible{outline:3px solid #087ce8;outline-offset:2px}
 
-/* Approved Snapshot branding */
-.brand-logo{display:block;width:300px;height:auto;flex-shrink:0}.brand-meta{display:flex;flex-direction:column;gap:5px}.brand .brand-meta small{font-size:12px;letter-spacing:0;white-space:nowrap;margin:0}.trial-badge{display:inline-flex;align-self:flex-start;border:1px solid #b5d3f7;background:#edf5ff;color:#075eb4;border-radius:5px;font-size:14px;font-weight:700;line-height:1;padding:5px 9px}.brand-link{display:block}.info-header .brand{white-space:normal}.site-footer strong{color:#14263d}header{gap:20px}.brand{gap:10px}
-@media(max-width:1250px){.brand-logo{width:250px}.free{display:none}}
-@media(max-width:720px){.brand{width:100%;gap:12px}.brand-logo{width:min(64vw,280px)}.brand .brand-meta small{font-size:12px;white-space:normal}.trial-badge{font-size:14px}.info-header .brand-link{width:100%}}
+/* Snapshot logo and home navigation */
+.brand-link{display:block;flex-shrink:0;color:#14263d;text-decoration:none;border-radius:4px}.brand-link:focus-visible{outline:2px solid #087ce8;outline-offset:4px}.brand{display:flex;flex-direction:column;align-items:flex-start;gap:0;width:260px;white-space:normal}.brand-logo{display:block;width:100%;height:auto;flex-shrink:0}.brand-meta{display:flex;align-items:center;gap:8px;width:100%;padding-left:3px}.brand .brand-meta small{display:inline;font-size:14px;letter-spacing:0;white-space:nowrap;margin:0;color:#63777d;font-weight:500}.trial-badge{display:inline-flex;align-items:center;border:1px solid #b5d3f7;background:#edf5ff;color:#075eb4;border-radius:4px;font-size:12px;font-weight:700;line-height:1;padding:4px 6px}.site-footer .brand{width:220px}.footer-brand>small{margin-top:9px}.site-footer .brand-meta{padding-top:2px}header{gap:20px}
+@media(max-width:1250px){.free{display:none}}
+@media(max-width:720px){header{padding-top:10px;padding-bottom:12px}.brand{width:250px}.brand .brand-meta small{font-size:14px}.info-header .brand-link{max-width:100%}.site-footer .brand{width:210px}}
 @media print{.brand{display:none}}

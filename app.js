@@ -1,10 +1,12 @@
+import {setupColorPalette} from './color-palette.js';
 import {setupPhotoPreview} from './photo-preview.js';
 import {defaultPhotoCounts,photoLayout,paperDimensions} from './layout.js';
-import {setupPhotoEditor} from './photo-editor.js?v=20261008-explicit-slots';
+import {setupPhotoEditor} from './photo-editor.js?v=20261008-primary-colors';
 import {QR_URL,QR_DATA} from './qr.js?v=20261008-explicit-slots';
 import * as pdfjs from './vendor/pdf.min.mjs';
 pdfjs.GlobalWorkerOptions.workerSrc='./vendor/pdf.worker.min.mjs';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+setupColorPalette($('#color'));
 const state={photos:[],drawings:[],paperSize:'A4',photosPerPage:4,pageCounts:{...defaultPhotoCounts},orientation:'landscape',view:'photos',drawingId:null,tool:'select',selected:null,zoom:1,dzoom:1,numberSize:'small'};
 const numberSizeScales={small:.5,medium:.75,large:1,xlarge:1.5};
 let timer,dragId,pointer=null,preview=null,pdfJobs=Promise.resolve();

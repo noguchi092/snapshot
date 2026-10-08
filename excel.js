@@ -14,7 +14,8 @@ export async function createExcel({photos,drawings,orientation,paperSize="A4",ph
   for(let j=0;j<per;j++){
    const p=photos[i*per+j],col=(j%layout.cols)*blockCols,startRow=4+Math.floor(j/layout.cols)*(blockRows+1),photoCols=land?blockCols:Math.max(1,Math.floor(blockCols*.63)),photoRows=land?Math.max(1,Math.floor(blockRows*.72)):blockRows;
    const commentRow=land?startRow+photoRows:startRow,commentCol=land?col:col+photoCols,commentEndRow=startRow+blockRows-1,commentEndCol=col+blockCols-1;
-   if(!p||p.blank){const start=colName(col)+(startRow+1),end=colName(commentEndCol)+(commentEndRow+1);if(start!==end)merges.push(start+':'+end);put(startRow+1,col,'',3);continue;}
+   if(!p)continue;
+   if(p.blank){const start=colName(col)+(startRow+1),end=colName(commentEndCol)+(commentEndRow+1);if(start!==end)merges.push(start+':'+end);put(startRow+1,col,'',3);continue;}
    const start=colName(commentCol)+(commentRow+1),end=colName(commentEndCol)+(commentEndRow+1);if(start!==end)merges.push(start+':'+end);put(commentRow+1,commentCol,p.comment||'',3);
    const w=photoCols*colW,h=photoRows*20,r=Math.min((w-10)/p.w,(h-10)/p.h),iw=p.w*r,ih=p.h*r;
    const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(iw*2));canvas.height=Math.max(1,Math.round(ih*2));const ctx=canvas.getContext('2d');ctx.drawImage(p.editedCanvas||p.img,0,0,canvas.width,canvas.height);const bw=Math.min(76,canvas.width*.14),bh=bw*.68;ctx.fillStyle='#087e79';ctx.fillRect(8,8,bw,bh);ctx.fillStyle='white';ctx.font='bold '+(bh*.65)+'px sans-serif';ctx.textAlign='center';ctx.fillText(String(photos.slice(0,i*per+j+1).filter(p=>!p.blank).length),8+bw/2,8+bh*.73);

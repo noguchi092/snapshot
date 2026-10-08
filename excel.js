@@ -18,7 +18,7 @@ export async function createExcel({photos,drawings,orientation,meta,annotatedDra
    put(commentRow+1,commentCol,p.comment,3);
    blocks.push({row:commentRow+1,endRow:commentEnd+1,col:land?col:6,endCol:land?col+4:9});
    const cw=land?70:65,w=photoCols*cw,h=photoRows*rowH*96/72,r=Math.min((w-10)/p.w,(h-10)/p.h),iw=p.w*r,ih=p.h*r;
-   const canvas=document.createElement('canvas');canvas.width=Math.round(iw*2);canvas.height=Math.round(ih*2);const ctx=canvas.getContext('2d');ctx.drawImage(p.img,0,0,canvas.width,canvas.height);ctx.fillStyle='#087e79';ctx.fillRect(12,12,76,52);ctx.fillStyle='white';ctx.font='bold 34px sans-serif';ctx.textAlign='center';ctx.fillText(String(i*per+j+1),50,51);
+   const canvas=document.createElement('canvas');canvas.width=Math.round(iw*2);canvas.height=Math.round(ih*2);const ctx=canvas.getContext('2d');ctx.drawImage(p.editedCanvas||p.img,0,0,canvas.width,canvas.height);ctx.fillStyle='#087e79';ctx.fillRect(12,12,76,52);ctx.fillStyle='white';ctx.font='bold 34px sans-serif';ctx.textAlign='center';ctx.fillText(String(i*per+j+1),50,51);
    const mediaId=media.length+1;media.push({id:mediaId,data:canvas.toDataURL('image/jpeg',.94).split(',')[1],ext:'jpg'});
    images.push({mediaId,col,row:startRow,x:(w-iw)/2,y:(h-ih)/2,w:iw,h:ih});
   }

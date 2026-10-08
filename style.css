@@ -24,3 +24,9 @@
 @media(max-width:1250px){.free{display:none}}
 @media(max-width:720px){header{padding-top:10px;padding-bottom:12px}.brand{width:250px}.brand .brand-meta small{font-size:14px}.info-header .brand-link{max-width:100%}.site-footer .brand{width:210px}}
 @media print{.brand{display:none}}
+
+/* Keep photo sources within reach while scrolling long drawings. */
+@media screen and (min-width:721px){
+ .shell>aside{position:sticky;top:0;align-self:start;max-height:100vh;max-height:100dvh;overflow-y:auto;scrollbar-gutter:stable;scrollbar-color:#6586ae #14263d}
+ .shell>aside .photo-list{max-height:clamp(160px,calc(100vh - 340px),48vh);max-height:clamp(160px,calc(100dvh - 340px),48dvh);overflow-y:auto;scrollbar-gutter:stable;overscroll-behavior-y:contain}
+}

@@ -56,3 +56,48 @@
 
 .screenshot-import-button{display:block;width:100%;margin-top:8px;background:#1b3554;color:white;border-color:#5579a3;font-size:12px;padding:11px 5px}.screenshot-import-button:hover{background:#254d77;color:white}
 .screenshot-dialog{width:min(680px,94vw);max-height:92vh;overflow:auto;border:0;border-radius:10px;padding:22px;color:#14263d}.screenshot-dialog::backdrop{background:#14263daa}.screenshot-dialog form{display:grid;gap:12px}.screenshot-dialog h2,.screenshot-dialog p{margin:0}.screenshot-dialog p{font-size:13px;line-height:1.7}.screenshot-dialog label{display:grid;gap:5px;font-size:13px}.screenshot-dialog input[type=file]{display:block;max-width:100%}.screenshot-paste{border:2px dashed #7cadd7;border-radius:6px;padding:20px;min-height:90px;font-size:14px;line-height:1.7;cursor:text;background:#f5faff}.screenshot-paste:empty::before{content:attr(data-placeholder);color:#526376;pointer-events:none}.screenshot-paste:focus{outline:2px solid #087ce8}.screenshot-preview{width:100%;max-height:45vh;object-fit:contain;background:#edf1f3}.screenshot-preview[hidden]{display:none}.screenshot-actions{display:flex;gap:8px;justify-content:flex-end}.screenshot-status{color:#526376}.drawing-item .drawing-rename{white-space:nowrap;font-size:10px;padding:3px}
+
+
+/* Paid comparison page legibility fix (2026-10-15) */
+.paid-page .paid-intro p,
+.paid-page .feature-card p,
+.paid-page .trial-storage-note,
+.paid-page .paid-availability,
+.paid-page .paid-return p{
+  color:#334155;
+}
+.paid-page .paid-intro p{line-height:1.85}
+.paid-page .paid-intro a.page-button,
+.paid-page .paid-return a.page-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  max-width:100%;
+  padding:13px 22px;
+  border:1px solid #087ce8;
+  border-radius:8px;
+  background:#087ce8;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  font-size:16px;
+  font-weight:750;
+  line-height:1.5;
+  box-shadow:0 2px 5px rgba(8,124,232,.15);
+}
+.paid-page .paid-intro a.page-button:hover,
+.paid-page .paid-return a.page-button:hover{
+  background:#075eb4;
+  border-color:#075eb4;
+  color:#fff;
+  text-decoration:none;
+}
+.paid-page .paid-intro a.page-button:focus-visible,
+.paid-page .paid-return a.page-button:focus-visible{
+  outline:3px solid #14263d;
+  outline-offset:3px;
+}
+@media(max-width:720px){
+  .paid-page .paid-intro a.page-button,
+  .paid-page .paid-return a.page-button{width:100%}
+}

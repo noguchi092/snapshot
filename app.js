@@ -9,7 +9,7 @@ import {setupColorPalette} from './color-palette.js';
 import {setupPhotoPreview} from './photo-preview.js';
 import {defaultPhotoCounts,photoLayout,paperDimensions,buildPhotoPages,changePhotoPageLayout} from './layout.js?v=20261013-page-layouts';
 import {appendPhotoPageControls} from './page-controls.js?v=20261013-page-layouts';
-import {setupPhotoEditor} from './photo-editor.js?v=20261109-paths';
+import {setupPhotoEditor} from './photo-editor.js?v=20261110-line-icons';
 import {QR_URL,QR_DATA} from './qr.js?v=20261008-explicit-slots';
 import * as pdfjs from './vendor/pdf.min.mjs';
 pdfjs.GlobalWorkerOptions.workerSrc='./vendor/pdf.worker.min.mjs';

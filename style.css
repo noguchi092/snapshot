@@ -101,3 +101,5 @@
   .paid-page .paid-intro a.page-button,
   .paid-page .paid-return a.page-button{width:100%}
 }
+
+.photo-editor-stage{position:relative}.photo-inline-text{position:absolute;z-index:5;transform:translateY(-.85em);font-family:sans-serif;font-weight:bold;line-height:1.2;width:18em;min-width:80px;padding:0 2px;border:1px dashed #087ce8;border-radius:0;background:#ffffffdf}.photo-editor-options #photo-font-size{width:80px}

@@ -1,4 +1,4 @@
-export const isFillShape=a=>a?.type==='rect'||a?.type==='circle';
+export const isFillShape=a=>a?.type==='rect'||a?.type==='circle'||a?.type==='polygon';
 export function fillOpacity(a){return Number.isFinite(a?.fillOpacity)?Math.max(0,Math.min(1,a.fillOpacity)):.35;}
 export function shapeFillAttributes(a){return `fill="${a.fill===true?a.color:'none'}" fill-opacity="${fillOpacity(a)}" pointer-events="all"`;}
 export function setupShapeFill({root,prefix,getSelected,render,record}){
@@ -7,5 +7,5 @@ export function setupShapeFill({root,prefix,getSelected,render,record}){
  function values(){return {fill:toggle.checked,fillOpacity:Number(range.value)/100};}
  function apply(save){const a=getSelected();if(isFillShape(a)){Object.assign(a,values());if(save)record();render();}label();}
  toggle.onchange=()=>apply(true);range.oninput=()=>apply(false);range.onchange=()=>apply(true);label();
- return {values,sync(tool){const a=getSelected(),shape=isFillShape(a);group.hidden=!shape&&!['rect','circle'].includes(tool);if(shape){toggle.checked=a.fill===true;range.value=String(Math.round(fillOpacity(a)*100));}label();}};
+ return {values,sync(tool){const a=getSelected(),shape=isFillShape(a);group.hidden=!shape&&!['rect','circle','polygon'].includes(tool);if(shape){toggle.checked=a.fill===true;range.value=String(Math.round(fillOpacity(a)*100));}label();}};
 }

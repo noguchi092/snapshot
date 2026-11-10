@@ -107,3 +107,5 @@
 .photo-line-picker{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.photo-line-picker[hidden]{display:none!important}.photo-line-picker button{width:70px;height:48px;padding:6px;color:#253e58;background:#fff;border:1px solid #bacbdc;border-radius:8px}.photo-line-picker button svg{width:100%;height:100%;display:block;pointer-events:none}.photo-line-picker button[aria-pressed="true"]{background:#e5f2ff;border:2px solid #087ce8;color:#0870cd}.photo-line-picker button:focus-visible{outline:3px solid #69aff1;outline-offset:2px}.photo-editor #photo-line-label[hidden]{display:none!important}
 
 #photo-object-rotation{display:flex;align-items:center;flex-wrap:wrap;gap:6px}#photo-object-rotation[hidden]{display:none!important}#photo-object-rotation label{display:flex;align-items:center;gap:4px}#photo-object-angle{width:76px}
+
+.photo-rotation-handle{cursor:grab;touch-action:none}.photo-rotation-handle:active{cursor:grabbing}.photo-rotation-handle:focus-visible circle{stroke:#064c91;stroke-width:3}.photo-object-selection{cursor:move}.photo-editor-stage>svg{touch-action:none}

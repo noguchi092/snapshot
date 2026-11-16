@@ -109,3 +109,5 @@
 #photo-object-rotation{display:flex;align-items:center;flex-wrap:wrap;gap:6px}#photo-object-rotation[hidden]{display:none!important}#photo-object-rotation label{display:flex;align-items:center;gap:4px}#photo-object-angle{width:76px}
 
 .photo-rotation-handle{cursor:grab;touch-action:none}.photo-rotation-handle:active{cursor:grabbing}.photo-rotation-handle:focus-visible circle{stroke:#064c91;stroke-width:3}.photo-object-selection{cursor:move}.photo-editor-stage>svg{touch-action:none}
+
+.photo-resize-handle{touch-action:none}.photo-resize-handle:hover rect{fill:#d8eaff;stroke:#064c91}

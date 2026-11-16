@@ -111,3 +111,5 @@
 .photo-rotation-handle{cursor:grab;touch-action:none}.photo-rotation-handle:active{cursor:grabbing}.photo-rotation-handle:focus-visible circle{stroke:#064c91;stroke-width:3}.photo-object-selection{cursor:move}.photo-editor-stage>svg{touch-action:none}
 
 .photo-resize-handle{touch-action:none}.photo-resize-handle:hover rect{fill:#d8eaff;stroke:#064c91}
+
+.photo-editor-zoom{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 20px;background:#f3f7fd;font-size:12px}.photo-editor-zoom output{min-width:48px;text-align:center}.photo-editor-zoom span{color:#657b82}.photo-editor .photo-editor-viewport{max-height:65vh;overscroll-behavior:contain}.photo-editor .photo-editor-stage{max-width:none;flex-shrink:0}

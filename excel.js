@@ -1,5 +1,5 @@
 import {excelPhotoPages} from './excel-photo-pages.js?v=20261110-excel-pdf';
-import {drawingLocations} from './drawing-links.mjs?v=20261012-pdfarchive';
+import {drawingLocations} from './drawing-links.mjs?v=20261123-photo-placement';
 import {buildPhotoPages,paperDimensions} from './layout.js?v=20261013-page-layouts';
 import {QR_DATA} from './qr.js?v=20261008-rotation-sekokan';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));

@@ -1,6 +1,6 @@
 import {paperDimensions} from './layout.js?v=20261013-page-layouts';
 import {PHOTO_WIDTH,PHOTO_GAP,photoPageSpace} from './photo-space.mjs?v=20261015-screenshot';
-const instructionText=p=>p.comment||'';
+import {instructionText} from './instruction-text.mjs?v=20261123-recipient';
 const colName=i=>{let name='';for(i++;i;i=Math.floor((i-1)/26))name=String.fromCharCode(65+(i-1)%26)+name;return name;};
 // Use the PDF canvas coordinates, with editable Excel cells in the text regions.
 export function excelPhotoPages({pages,photos,meta,paperSize,land,media,qrId,cell,ns,rel,esc,dynamicStyles}){

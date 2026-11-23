@@ -1,4 +1,5 @@
-import {excelPhotoPages} from './excel-photo-pages.js?v=20261110-excel-pdf';
+import {instructionText} from './instruction-text.mjs?v=20261123-recipient';
+import {excelPhotoPages} from './excel-photo-pages.js?v=20261123-recipient';
 import {drawingLocations} from './drawing-links.mjs?v=20261123-photo-placement';
 import {buildPhotoPages,paperDimensions} from './layout.js?v=20261013-page-layouts';
 import {QR_DATA} from './qr.js?v=20261008-rotation-sekokan';
@@ -12,7 +13,7 @@ export async function createExcel({photos,drawings,orientation,paperSize="A4",ph
  const cell=(ref,value,style=0)=>`<c r="${ref}" s="${style}" t="inlineStr"><is><t xml:space="preserve">${esc(value)}</t></is></c>`;
  const dynamicStyles=[];sheets.push(...excelPhotoPages({pages,photos,meta,paperSize,land,media,qrId,cell,ns,rel,esc,dynamicStyles}));
  // Build editable, paginated comment lists; blank comments are omitted.
- const entries=photos.filter(p=>!p.blank).map((p,i)=>({number:i+1,comment:(p.comment||''),locations:drawingLocations(drawings,p.id)})).filter(e=>e.comment.trim()||e.locations.length),groups=[];let group=[],used=0;const budget=land?460:700;
+ const entries=photos.filter(p=>!p.blank).map((p,i)=>({number:p.nativeNumber||i+1,comment:instructionText(p),locations:drawingLocations(drawings,p.id)})).filter(e=>e.comment.trim()||e.locations.length),groups=[];let group=[],used=0;const budget=land?460:700;
  const wrap=(value,width)=>value.split('\n').flatMap(line=>{const chars=Array.from(line);return chars.length?Array.from({length:Math.ceil(chars.length/width)},(_,i)=>chars.slice(i*width,(i+1)*width).join('')):[''];});
  for(const e of entries){const lines=wrap(e.comment,28),places=wrap(e.locations.join('\n')||'未配置',17),total=Math.max(lines.length,places.length),perChunk=Math.floor((budget-20)/16);for(let at=0;at<total;at+=perChunk){const length=Math.min(perChunk,total-at),height=Math.max(32,length*16+12);if(group.length&&used+height>budget){groups.push(group);group=[];used=0}group.push({number:e.number,comment:lines.slice(at,at+length).join('\n'),locations:places.slice(at,at+length).join('\n'),height,continued:at>0});used+=height}}
  if(group.length)groups.push(group);
